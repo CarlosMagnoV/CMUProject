@@ -17,10 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpScreen" />
-        <activity
-            android:name=".MainMenuScreen"
-            android:label="@string/title_activity_main_menu_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".PostScreen"></activity>
     </application>
 
 </manifest>
