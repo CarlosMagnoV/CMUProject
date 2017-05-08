@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import pt.ulisboa.tecnico.cmov.projectcmu.util.StatusTracker;
 
@@ -68,9 +70,44 @@ public class SignUpScreen extends Activity {
         mStatusTracker.clear();
     }
 
-    public void startActivityLogin(View v) {
-        Intent intent = new Intent(SignUpScreen.this, LoginScreen.class);
-        startActivity(intent);
+
+    public void goBack(View v) {
+        //Intent intent = new Intent(SignUpScreen.this, LoginScreen.class);
+        //startActivity(intent);
+        finish();
     }
+
+    public void goToMainMenu(View view){
+
+        String username = null;
+        String password = null;
+        String passwordConfirm = null;
+        try {
+            username = String.valueOf(((TextView) this.findViewById(R.id.SUusername)).getText());
+            password = String.valueOf(((TextView) this.findViewById(R.id.SUpassword)).getText());
+            passwordConfirm = String.valueOf(((TextView) this.findViewById(R.id.SUconfirmPassword)).getText());
+        }
+        catch(NullPointerException e){
+            Toast.makeText(this, "Username or password empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(!username.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty()) {
+            if(passwordConfirm.equals(password)) {
+                Toast.makeText(this, password, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainMenuScreen.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "Passwords don't match!", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            Toast.makeText(this, "Username or password empty", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
 }

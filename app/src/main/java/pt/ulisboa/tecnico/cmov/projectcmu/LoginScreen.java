@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import pt.ulisboa.tecnico.cmov.projectcmu.util.StatusTracker;
 
@@ -68,8 +70,26 @@ public class LoginScreen extends Activity {
         //mStatusTracker.clear();
     }
 
-    public void startActivitySignUp(View v) {
-        Intent intent = new Intent(LoginScreen.this, SignUpScreen.class);
+    public void doLogin(View view) {
+
+        String username = null;
+        String password = null;
+        try {
+            username = String.valueOf(((TextView) this.findViewById(R.id.SUusername)).getText());
+            password = String.valueOf(((TextView) this.findViewById(R.id.SUpassword)).getText());
+        }
+        catch(NullPointerException e){
+            Toast.makeText(this, "Username or password empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Toast.makeText(this, password, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MainMenuScreen.class);
+        startActivity(intent);
+    }
+
+    public void startActivitySignUp(View view) {
+        Intent intent = new Intent(this, SignUpScreen.class);
         startActivity(intent);
     }
 }

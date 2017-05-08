@@ -71,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="0dp"
         android:text="Confirm"
+        android:onClick="goToMainMenu"
         app:layout_constraintRight_toRightOf="@+id/SUconfirmPassword"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/SUconfirmPassword" />
@@ -81,7 +82,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:onClick="startActivityLogin"
+        android:onClick="goBack"
         android:text="BackLogin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
