@@ -75,17 +75,26 @@ public class LoginScreen extends Activity {
         String username = null;
         String password = null;
         try {
-            username = String.valueOf(((TextView) this.findViewById(R.id.SUusername)).getText());
-            password = String.valueOf(((TextView) this.findViewById(R.id.SUpassword)).getText());
+            username = String.valueOf(((TextView) this.findViewById(R.id.Lusername)).getText());
+            password = String.valueOf(((TextView) this.findViewById(R.id.Lpassword)).getText());
         }
         catch(NullPointerException e){
             Toast.makeText(this, "Username or password empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Toast.makeText(this, password, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MainMenuScreen.class);
-        startActivity(intent);
+        if(!username.isEmpty() && !password.isEmpty()) {
+            Toast.makeText(this, password, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainMenuScreen.class);
+
+            Bundle b = new Bundle();
+            b.putString("Username", username);
+            intent.putExtras(b);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Username or password empty", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void startActivitySignUp(View view) {

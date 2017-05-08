@@ -96,6 +96,9 @@ public class SignUpScreen extends Activity {
             if(passwordConfirm.equals(password)) {
                 Toast.makeText(this, password, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, MainMenuScreen.class);
+                Bundle b = new Bundle();
+                b.putString("Username", username);
+                intent.putExtras(b);
                 startActivity(intent);
             }
             else{
