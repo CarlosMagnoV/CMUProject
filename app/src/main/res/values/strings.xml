@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">ProjectCMU</string>
     <string name="title_activity_main_menu_screen">MainMenuScreen</string>
-    <string name="add_post">Add Post</string>
+    <string name="new_post">New Post</string>
     <string name="home">Home</string>
-    <string name="post">Post</string>
+    <string name="post">Posts</string>
     <string name="cancel_post">Cancel</string>
     <string name="ok_post">OK</string>
     <string name="title">Title</string>
+    <string name="remove_post">Remove</string>
+    <string name="title_activity_new_post_screen">NewPostScreen</string>
+    <string name="title_activity_post_list_screen">PostListScreen</string>
 
 </resources>
